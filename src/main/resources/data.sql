@@ -1,0 +1,1 @@
+insert into article(id, content, created_at, created_by, hashtag, title, updated_at, updated_by) VALUES (1, '게시판 내용', sysdate(), 'eun','#스프링','게시판 제목', sysdate(), 'ceh');
