@@ -37,7 +37,7 @@ class JpaRepositoryTest {
         //then
         assertThat(articles)
                 .isNotNull()
-                .hasSize(0);
+                .hasSize(123);
     }
 
     @DisplayName("insert 테스트")
@@ -61,9 +61,9 @@ class JpaRepositoryTest {
         article.setHashtag(updatedHashtag);
 
         //when
-        Article savedArticle = articleRepository.save(article);
+        Article savedArticle = articleRepository.saveAndFlush(article);
         //then
-        assertThat(savedArticle).hasFieldOrPropertyWithValue("#스프링", updatedHashtag);
+        assertThat(savedArticle).hasFieldOrPropertyWithValue("hashtag", updatedHashtag);
     }
 
     @DisplayName("delete 테스트")
