@@ -65,4 +65,3 @@ sourceSets {
 clean {
     delete file(generated)
 }
-targetCompatibility = JavaVersion.VERSION_16
