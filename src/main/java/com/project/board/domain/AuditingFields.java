@@ -1,5 +1,6 @@
 package com.project.board.domain;
 
+import lombok.Getter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,6 +14,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+@Getter
 @ToString
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
