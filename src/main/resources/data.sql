@@ -1,7 +1,7 @@
 -- 테스트 계정
 -- TODO: 테스트용이지만 비밀번호가 노출된 데이터 세팅. 추후 암호화 필요
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, updated_at, updated_by) values
-    ('ceh', 'dmsgur123!!', 'ceh', 'ceh@mail.com', 'I am eun.', now(), 'uno', now(), 'uno')
+    ('ceh', 'dmsgur123!!', 'ceh', 'ceh@mail.com', 'I am eun.', now(), 'ceh', now(), 'ceh')
 ;
 
 insert into article (user_account_id, title, content, hashtag, created_by, updated_by, created_at, updated_at) values
