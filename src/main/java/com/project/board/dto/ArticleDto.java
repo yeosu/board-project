@@ -1,7 +1,6 @@
 package com.project.board.dto;
 
 import com.project.board.domain.Article;
-import com.project.board.domain.UserAccount;
 
 import java.time.LocalDateTime;
 
@@ -16,10 +15,6 @@ public record ArticleDto(
         LocalDateTime updatedAt,
         String updatedBy
 ) {
-
-    public static ArticleDto of(UserAccountDto userAccountDto, String title, String content, String hashtag) {
-        return new ArticleDto(null, userAccountDto, title, content, hashtag, null, null, null, null);
-    }
     public static ArticleDto of(Long id, UserAccountDto userAccountDto, String title, String content, String hashtag, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
         return new ArticleDto(id, userAccountDto, title, content, hashtag, createdAt, createdBy, updatedAt, updatedBy);
     }
@@ -38,9 +33,9 @@ public record ArticleDto(
         );
     }
 
-    public Article toEntity(UserAccount userAccount) {
+    public Article toEntity() {
         return Article.of(
-                userAccount,
+                userAccountDto.toEntity(),
                 title,
                 content,
                 hashtag

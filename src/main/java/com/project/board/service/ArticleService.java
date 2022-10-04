@@ -1,12 +1,10 @@
 package com.project.board.service;
 
 import com.project.board.domain.Article;
-import com.project.board.domain.UserAccount;
-import com.project.board.domain.constant.SearchType;
+import com.project.board.domain.type.SearchType;
 import com.project.board.dto.ArticleDto;
 import com.project.board.dto.ArticleWithCommentsDto;
 import com.project.board.repository.ArticleRepository;
-import com.project.board.repository.UserAccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +19,6 @@ import java.util.List;
 @Service
 public class ArticleService {
     private final ArticleRepository articleRepository;
-    private final UserAccountRepository userAccountRepository;
 
     @Transactional(readOnly = true)
     public Page<ArticleDto> searchArticles(SearchType searchType, String searchKeyword, Pageable pageable) {
@@ -40,28 +37,20 @@ public class ArticleService {
     }
 
     @Transactional(readOnly = true)
-    public ArticleWithCommentsDto getArticleWithComments(Long articleId) {
+    public ArticleWithCommentsDto getArticle(Long articleId) {
 
         return articleRepository.findById(articleId)
                 .map(ArticleWithCommentsDto::from)
                 .orElseThrow(() -> new EntityNotFoundException("게시글이 없습니다. - articleId : " + articleId));
     }
 
-    @Transactional(readOnly = true)
-    public ArticleDto getArticle(Long articleId) {
-        return articleRepository.findById(articleId)
-                .map(ArticleDto::from)
-                .orElseThrow(() -> new EntityNotFoundException("게시글이 없습니다 - articleId: " + articleId));
-    }
-
     public void saveArticle(ArticleDto dto) {
-        UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountDto().userId());
-        articleRepository.save(dto.toEntity(userAccount));
+        articleRepository.save(dto.toEntity());
     }
 
-    public void updateArticle(Long articleId, ArticleDto dto) {
+    public void updateArticle(ArticleDto dto) {
         try {
-            Article article = articleRepository.getReferenceById(articleId); //java 13 부터 getter로 가져오지 않고 dto에서 바로 가져옴
+            Article article = articleRepository.getReferenceById(dto.id()); //java 13 부터 getter로 가져오지 않고 dto에서 바로 가져옴
             if(dto.title() != null) { article.setTitle(dto.title()); }
             if(dto.content() != null) { article.setContent(dto.content()); }
             article.setHashtag(dto.hashtag());

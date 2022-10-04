@@ -3,8 +3,7 @@
     <attr sel="#header" th:replace="common/header :: header" />
     <attr sel="#footer" th:replace="common/footer :: footer" />
 
-    <attr sel="main" th:object="${articles}">
-        <attr sel="#search-form" th:action="@{/articles}" th:method="get" />
+    <attr sel="main" th:object="${articles}"> : ${}
         <attr sel="#search-type" th:remove="all-but-first">
             <attr sel="option[0]"
                   th:each="searchType : ${searchTypes}"
@@ -52,8 +51,6 @@
                 </attr>
             </attr>
         </attr>
-
-        <attr sel="#write-article" th:href="@{/articles/form}" />
 
         <attr sel="#pagination">
             <attr sel="li[0]/a"
