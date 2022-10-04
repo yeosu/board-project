@@ -1,7 +1,7 @@
 -- 테스트 계정
 -- TODO: 테스트용이지만 비밀번호가 노출된 데이터 세팅. 추후 암호화 필요
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, updated_at, updated_by) values
-    ('ceh',, 'dmsgur123!!', 'ceh',, 'ceh@mail.com', 'I am eun.', now(), 'ceh',, now(), 'ceh',)
+    ('ceh', 'dmsgur123!!', 'ceh', 'ceh@mail.com', 'I am eun.', now(), 'ceh', now(), 'ceh')
 ;
 
 insert into article (user_id, title, content, hashtag, created_by, updated_by, created_at, updated_at) values
@@ -368,7 +368,7 @@ insert into article_comment (article_id, user_id, content, created_at, updated_a
                                                                                                                          (56, 'ceh', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', '2021-12-22 12:41:15', '2021-04-14 03:12:08', 'Garvin', 'Esra'),
                                                                                                                          (9, 'ceh', 'Fusce consequat. Nulla nisl. Nunc nisl.', '2021-05-29 13:08:55', '2021-08-01 08:38:29', 'Siward', 'Garey'),
                                                                                                                          (31, 'ceh', 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', '2021-12-15 19:49:25', '2022-01-27 19:49:47', 'Fran', 'Cece'),
-                                                                                                                         ('ceh', 'ceh', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '2021-03-02 11:57:54', '2021-05-09 12:36:08', 'Torry', 'Rolando'),
+                                                                                                                         (1, 'ceh', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '2021-03-02 11:57:54', '2021-05-09 12:36:08', 'Torry', 'Rolando'),
                                                                                                                          (110, 'ceh', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', '2021-07-27 01:40:15', '2021-06-25 16:54:44', 'Kevin', 'Chico'),
                                                                                                                          (78, 'ceh', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', '2021-03-30 22:33:45', '2021-03-13 12:40:17', 'Xavier', 'Nicol'),
                                                                                                                          (73, 'ceh', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', '2021-11-26 19:26:39', '2021-04-14 20:32:25', 'Grannie', 'Cobbie'),
