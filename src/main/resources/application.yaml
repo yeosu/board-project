@@ -13,10 +13,10 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/board
-    username: root
-    password:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:oracle:thin:@oracledb_high?TNS_ADMIN=/Users/choi/Documents/Wallet_oracledb
+    username: admin
+    password: Dmsgur2805!@
+    driver-class-name: oracle.jdbc.OracleDriver
 #  url: jdbc:h2:mem:test
 #  username: sa
 #  driver-class-name: org.h2.Driver
@@ -30,7 +30,7 @@ spring:
         format_sql: true
         default_batch_fetch_size: 100
     open-in-view: false
-    database: mysql
+    database: oracle
   sql.init.mode: always
   data.rest:
     base-path: /api
