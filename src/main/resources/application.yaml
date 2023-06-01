@@ -15,7 +15,7 @@ spring:
   datasource:
     url: jdbc:oracle:thin:@oracledb_high?TNS_ADMIN=/Users/choi/Documents/Wallet_oracledb
     username: admin
-    password: Dmsgur2805!@
+    password: 
     driver-class-name: oracle.jdbc.OracleDriver
 #  url: jdbc:h2:mem:test
 #  username: sa
